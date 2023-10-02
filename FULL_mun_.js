@@ -1,5 +1,6 @@
 /*
-* izpis faz
+* izpis faz 
+* za FullMunLib()
 */
 function iii(n){
   function dA( a){ let x =  a<180 ? a-90 : 270-a
