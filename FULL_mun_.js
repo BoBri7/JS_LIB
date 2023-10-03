@@ -20,5 +20,5 @@ function iii(n){
 leva poravnava za StatusField
 */
 function ii(x){const n=33
-  return ( iii(x)+" ".repeat(n)).slice(0,n)+"."
+  return ( iii(x)+" ".repeat(n)).slice(0,n)+".\n"
 }
