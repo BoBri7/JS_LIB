@@ -11,7 +11,7 @@ function iii(n){
   let a= field( "azimut"+n) 
   let da= a==null  ? " ~"  : dA(a)
   
-   return (a==null ? "❔" :a<180 ?"↗️":"↘️")
+   return (a==null ? " ❔" :a<180 ?"↗️":"↘️")
    +(d.slice(0,1)=="I" ?"~~.~~.~~" :d ) 
    +(u.slice(0,1)=="I" ?"~~:~~"       :u )
    +(a==null ?"  ~" :("  "+a).slice(-4) +"° "+ da )
