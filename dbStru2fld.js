@@ -3,7 +3,7 @@ function dbStru(dfSfld)
   (dfSf) field to write
   return zapiše strukturo baze v polje dbStru
 */
-function dbStru2Fld(dbSf){
+function dbStru2fld(dbSf){
   function  s(t,n){ if(n==null) n=15
     t=String(t)
     return t+" ".repeat(Math.max(1,n-t.length))+"| "
