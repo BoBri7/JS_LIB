@@ -3,7 +3,7 @@ function dbStru(dfSfld)
   (dfSf) field to write
   return zapiše strukturo baze v polje dbStru
 */
-function dbStru2fld(dbSf){
+function dbStru2fld(dbSf){dbSf=dbSf==null ?"dbStru" :dbSf
   function  s(t,n){ if(n==null) n=15
     t=String(t)
     return t+" ".repeat(Math.max(1,n-t.length))+"| "
@@ -19,7 +19,7 @@ function dbStru2fld(dbSf){
     o+= s(String(typeof( dbe.field(fi))).slice(0,3) ,5)                 
     o+= dbe.field(fi)                           
   }
-  dbe.set(dbSf==null ?"dbStru" :dbSf,o)
+  dbe.set(dbSf,o)
   return o+"\n========\n"
 }
 //dbe=db.entries()[0].set("dbSf",dbStru())
