@@ -25,3 +25,5 @@ function dbStru2fld(dbSf){dbSf=dbSf==null ?"dbStru" :dbSf
 //dbe=db.entries()[0].set("dbSf",dbStru())
 //==== end ===
 //log(dbStru2fld("dbStru"))
+function test(x){return x==null ? "test"  :x }
+//★End
