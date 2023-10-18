@@ -23,6 +23,6 @@ function iii(n,z){
  }
 // leva poravnava za StatusField
 function ii(x,n,z){
-  return ( iii(x,z)+" ".repeat(99)).slice(0,n==null?29:n)+".\n"
+  return ( iii(x,z)+" ".repeat(99)).slice(0,n==null?29:n)+"\n"
 }
 //★★ end ★★
