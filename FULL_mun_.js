@@ -21,8 +21,8 @@ function iMF(n,z){ //izpis mun faze
    +(u.slice(0,1)=="I" ?"~~:~~"       :u )
    +(a==null ?"  ~" :("  "+a).slice(-4) +"° "+ da )
  }
-// leva poravnava za StatusField
-function isf(x,n){
+// leva poravnava za StatusField FM
+function isfm(x,n){
   return ( iFM(x)+" ".repeat(55)).slice(0,n==null?33:n)+"\n"
 }
 //★★ end ★★
