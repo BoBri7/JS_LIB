@@ -14,7 +14,7 @@ function iMF(n,z){ //izpis mun faze
   let d= moment(field( "dan"+n)).format(" DD.MM. ")
   let u= moment(field( "ura"+n)).format("HH:mm  ")
   let a= field( "azimut"+n) 
-  let da= a==null  ? " ~"  :  z==null ?dA(a)  :dA1(a)
+  let da= a==null  ? " ~"  : ( z==null ?dA(a)  :dA1(a) )
   
    return (a==null ? " ❔" :a<180 ?"↗️":"↘️")
    +(d.slice(0,1)=="I" ?"~~.~~.~~" :d ) 
@@ -23,6 +23,6 @@ function iMF(n,z){ //izpis mun faze
  }
 // leva poravnava za StatusField
 function isf(x,n){
-  return ( iFM(x,z)+" ".repeat(55)).slice(0,n==null?33:n)+"\n"
+  return ( iFM(x)+" ".repeat(55)).slice(0,n==null?33:n)+"\n"
 }
 //★★ end ★★
