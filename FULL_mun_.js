@@ -1,10 +1,10 @@
 /*
 * izpis faz 
-* za FullMunLib()
+* za FullMun() lib
 */
-function iii(n,z){
+function iMF(n,z){ //izpis mun faze
   function dA1( a){ let x =  a<180 ? -(a-90) : -(270-a)
-    return "="+(a<180 ?"E" :"W")+ ("  "+(x>0?"+":"")+x).slice(-3) +"°"
+    return "="+(a<180 ?"E" :"W")+ ("  "+(x>0?"+":"")+x+"°").slice(-4) 
   }
   function A(x){ return Math.abs(x)}
   function dA( a){ let x =  a<180 ? -(a-90) : -(270-a)
@@ -22,7 +22,7 @@ function iii(n,z){
    +(a==null ?"  ~" :("  "+a).slice(-4) +"° "+ da )
  }
 // leva poravnava za StatusField
-function ii(x,n,z){
-  return ( iii(x,z)+" ".repeat(99)).slice(0,n==null?29:n)+"\n"
+function isf(x,n){
+  return ( iFM(x,z)+" ".repeat(55)).slice(0,n==null?33:n)+"\n"
 }
 //★★ end ★★
