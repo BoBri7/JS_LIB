@@ -1,3 +1,4 @@
+function isl(x,n){return iSL(x,n) }
 function iSL(x,n){
   x=x.split("\n")
   for(let i=0;i<x.length;i++){
