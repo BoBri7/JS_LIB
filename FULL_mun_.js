@@ -1,8 +1,9 @@
 /*
 * izpis faz 
 * za FullMun() lib
+* leva poravnava za StatusFld
 */
-function iMF(n,z){ //izpis mun faze
+function iFM(n,z){ //izpis mun 
   function dA1( a){ let x =  a<180 ? -(a-90) : -(270-a)
     return "="+(a<180 ?"E" :"W")+ ("  "+(x>0?"+":"")+x+"°").slice(-4) 
   }
