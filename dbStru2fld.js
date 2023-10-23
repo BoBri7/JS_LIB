@@ -1,9 +1,10 @@
 /**
-function dbStru(dfSfld)
+function dbStru(dfSf,val)
   (dfSf) field to write
+   val  1 write values /0= not
   return zapiše strukturo baze v polje dbStru
 */
-function dbStru2fld(dbSf){dbSf=dbSf==null ?"dbStru" :dbSf
+function dbStru2fld(dbSf,v){dbSf=dbSf==null ?"dbStru" :dbSf
   function  s(t,n){ if(n==null) n=15
     t=String(t)
     return t+" ".repeat(Math.max(1,n-t.length))+"| "
@@ -17,7 +18,7 @@ function dbStru2fld(dbSf){dbSf=dbSf==null ?"dbStru" :dbSf
     o+= "\n"                                   
     o+= s(fi)
     o+= s(String(typeof( dbe.field(fi))).slice(0,3) ,5)                 
-    o+= dbe.field(fi)                           
+    o+= v!=null ?dbe.field(fi) :""                        
   }
   dbe.set(dbSf,o)
   return o+"\n========\n"
