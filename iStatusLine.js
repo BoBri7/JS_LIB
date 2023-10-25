@@ -1,4 +1,11 @@
-function isl(x,n,z){return iSL(x,n,z) }
+/*
+★ isl //iSL => izpis vrsric v poravnavo za statusFild
+  stringLines
+  n-length = 33
+  zaključek=""
+★ iOp(fieldName) => če ni blank izpiše, sicer blank
+*/
+function isl(s,n,z){return iSL(s,n,z) }
 function iSL(x,n,z){
   if(typeof(n)=="string"){ z=n;n=33 }
   x=x.split("\n")
@@ -7,3 +14,6 @@ function iSL(x,n,z){
   }
   return x.join("\n")+"\n"                         
 }              
+function iOp(x){let v=field(x)
+ return v.length>0 ? "\n"+x+": "+v :""
+}
