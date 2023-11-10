@@ -44,7 +44,7 @@ function iT2L(x,n,p,z,obj){
        o.push( "[mxL="+m+"]")
    }
    for(let i=0;i<c(o);i++){oi=o[i] //== desna poravnava+z
-      o[i]=oi+" ".repeat(m-oi.length+1)+(z!=null ?z:"")
+      o[i]=oi+" ".repeat(n-oi.length+1)+(z!=null ?z:"")
       //o[i]+="["+c(oi)+">"+c(o[i])   //==t= dolžine vrstic
    } 
    return o.join("\n")//+"\no1="+cc+"<"
