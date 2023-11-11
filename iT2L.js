@@ -12,7 +12,7 @@
  p = ListObj,  LL, hed, z){
 */
 function iT2L(x,n,p,z,obj){
-  function mm(x){ return Math.max(m,oi.length) }
+  function mm(x){ return Math.max(n,m,oi.length) }
   function c(x){ return x.length }
   const cc =5
   p= p>0 ?" ".repeat(p)   :""  
