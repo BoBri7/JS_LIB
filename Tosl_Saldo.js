@@ -43,15 +43,18 @@ function setSaldo(e ,wr){  if(wr==null) wr=0
   return  k.join("\n")+"\n"+er +" \n\n"
 } 
 //==========
-DBGx=1
-if( DBGx >0 ){
-  var er== ""
-  db=lib().entries()
-  if( DBGx =1){
-     e=db[   5     ]
+//setSaldo ( entry(), wr /0 =  1= no wr 2=write )
+// sharedSALDO + gitHub function 
+DBGx = 1 //=== debuging <<=
+if( DBGx >0 ){ ;
+  var er== "";
+  db=lib().entries();
+
+  if( DBGx =1){  ; //debug 1 entry
+     e=db[   5     ]  //== entry #
      t= setSaldo(e ,  1) //1= ?  2= ??
   } 
-  else { // zanka /db
+  else { // zanka all db
    for(let i=0;i<db.length;i++){e=db[i];   t=setSaldo(e,2) }
  }
  log("end")
