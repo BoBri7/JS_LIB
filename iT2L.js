@@ -14,7 +14,8 @@
 function iT2L(x,n,p,z,obj){
   x=String(x).split("\n")
   //if(x.length>1) return
-  o=x.length+" =L \n"+it2L(x[0],n,p,z,obj)
+  //o=x.length+" =L \n"+
+  let o=it2L(x[0],n,p,z,obj)
   for(let i=1;i<x.length;i++){xi=x[i]
       o+="\n"+( xi>"" ?it2L(x[i],n,p,z,obj) :"")
    } 
