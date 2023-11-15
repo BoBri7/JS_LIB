@@ -1,13 +1,13 @@
-function N(s){ return Number(s)}
-function np(a){let o=1; for( i in a){o=o*a[i]}; return o}
-function eset(wr,k,tf,z, p1,p2){ 
-  z=z *(p1==null?1: p1.slice(0,1)==p2 ?1,0)
-  if(wr>1)e.set(tf,z)
-  k.push(tf+" = "+z)
-}
-
 function setSaldo(e ,wr){  if(wr==null) wr=0
-// x  let t="SALDO,PLAN,CASH,BANK,OTHR".split(",")  //= target?
+ function N(s){ return Number(s)}
+  function np(a){let o=1; for( i in a){o=o*a[i]}; return o}
+//  function eset(wr,k,tf,z, p1,p2){
+  function eset(tf,z, p1,p2){ 
+     try {z=z *(p1==null ?1 : p1.slice(0,1)==p2 ?1:0)}
+     catch(E){er+= "\n p1=" +p1+" p2= "+p2+" E$"+E.description}
+     if(wr > 1) { e.set(tf,z) }
+     k.push(tf+" = "+z)
+  }
   let o={"zn":0,"proj":1,"tr":2,"st":3,"rcn":4,"rcnt":4}      //= object
   let k=Object.keys(o), s=""
   for( let i=0;i<k.length;i++){ let ki=k[i] ,vi=e.field(ki)
@@ -30,21 +30,32 @@ function setSaldo(e ,wr){  if(wr==null) wr=0
     zn=np([o.zn,o.proj,o.tr])
     if(o.st<1)zn=0
     if(o.tr == ">") zn = -zn
-    
-    eset( "SALDO",zn);
+    try { var er="Er¢ " }
+    catch (E){ er+=E.description }
+    eset("SALDO",zn);
     eset("PLAN", zn,o.st,"P") 
     eset("CASH" ,zn,o.rcn,"C")
-    eset("BANK",zn,o.rcn,"B")
-    eset("OTHR",zn,o.rcn,"o")
-    if(o.tr== ">") eset(o.rcnt,-zn)
+//    eset(wr,k, "BANK",zn,o.rcn,"B")
+//    eset(wr,k,"OTHR",zn,o.rcn,"o")
+    if(o.tr== ">") eset(wr,k,o.rcnt,-zn)
   }
-  return  k
+  
+  return  k.join("\n")+"\n"+er +" \n\n"
 } 
+//==========
+DBGx=1
+if( DBGx >0 ){
+  var er== ""
+  db=lib().entries()
+  if( DBGx =1){
+     e=db[   5     ]
+     t= setSaldo(e ,  1) //1= ?  2= ??
+  } 
+  else { // zanka /db
+   for(let i=0;i<db.length;i++){e=db[i];   t=setSaldo(e,2) }
+ }
+ log("end")
+}
 
-// ===
-db=lib().entries()
- t=setSaldo(db[5],1)
-log(" \n"+t.join("\n") +" \n \n")
-//log( np(["a","22"]))
 
   
