@@ -1,70 +1,70 @@
-/*
-★ Bank <=
-  Vcr. Visa Credit ==]
-  Vdb. Visa Dbt.   ==]=ista?
-  Vpy. Visa prePay
-   Vsav. varčevalni
-★ cash <=  Csh. Cash
-? PM. Magna. ? bencin =X ; el.e. =trajnik <= direkt
-? DC. diners. =X
-*/
-/* 
-* = updSld(e,w)
-* entry
-* write return {[obj]}
-*/
-function updSld(e,wr){ //== 
-  function f(x){return e.field(x)}
-  function fi(x,t){                //= izpis key:value
-    function fx(x,t){         //= slice cc tgt
-      switch (t){
-      case 0: return s(x) ;break
-      case 1: return c(x) ;break
-      case 2: return rcn(x) ;break
-      default: return "★?"
-    } }
-     let o= x+":="+  f(x) //+" = " +te(x,t)
-     try { o+= "  =  "+fx(x,t) }
-     catch (er) {o+= " err"}
-     return o
+function setSaldo(e ,wr){  if(wr==null) wr=0
+ function N(s){ return Number(s)}
+  function np(a){let o=1; for( i in a){o=o*a[i]}; return o}
+  function eset(tgtf, znsk, p1,p2){ 
+     try {znsk=znsk *(p1==null ?1 : p1.slice(0,1)==p2 ?1 :0)   }
+     catch(Err){
+         Er+="\n f:"+tgtf+" p1="+p1+" p2="+p2 +" $"+Err.message
+     }
+     if(wr > 1) { e.set( tgtf, znsk) 
+     }
+     k.push(tgtf+" = "+znsk)
+  }//======== 12
+  let o={"zn":0,"proj":1,"tr":2,"st":3,"rcn":4,"rcnt":4}      //= object
+  let k=Object.keys(o), s="" ,Er=""
+  for( let i=0;i<k.length;i++){ let ki=k[i] ,vi=e.field(ki)
+    s=i+" "+ki +" = "+vi
+    switch (o[ki]){
+    case 1: vi=vi.slice(-1);break //=="-" ?"d" :"x" ;break   // proj -
+    case 2: vi=vi.slice(-1)                                          // tr p+1 o-1 tr>0
+                  // vi=vi=="-" ?-1 :1 ;
+                  break  
+    case 3: vi=vi.slice(0,1)      // st Re Pl Void=0
+       vi=vi=="V" ?0 :vi ;break 
+    case 4: vi=vi.slice(0,1)       // rcn BankCashaOthr
+        vi=vi=="C" ?"CASH" : vi=="V" ? "BANK"  : "othr"  
+    }
+    s+= "=>"+vi ; k[i]= s
+    o[ki]=vi
   }
-  function c(x){ return s(x)=="-" ?-1 :1 }  //= cc +/-1
-  function s(x){ return f(x).slice(-1) }       //= slice
-  function rct(x){ let o=""     //= Saldo.target 4transfer
-    switch (s(x)) {
-    case "C": o ="CASH" ;break
-    case "V": o ="BANK" ;break
-    default : o ="othr" 
-    } return o
-  }
-  // return Void=0  R/P x=t? 1,0
-  function fx(t){ let x=s("st"); return x=="V" ?0:t== null ?1 :ifx(t,x) }
-  function ifs(a,b){ return a==b ?1,0}
+ e.set("TestOUT", k.join("\n"))
+ if(wr>0){
   
-  let zn="zn",     //= znesek
-  pr="proj",       //= projekt
-  tr="tr" ,        //= trans +p -o =transf
-  rc="rcn",        //= račun V* C* ...
-  rt ="rcnt",       //= račun => transfer
-  st="st"           //= status Re Plan Void
-  let z= f(zn)*c(pr)*c(tr)*stx(st)
+    zn=np([o.zn, o.tr<0 ?-1 :1] , o.proj=="-" ?-1,1)
 
-  if(wr > 0) {     //= zapis sald
-      e.set("SALDO", zn* fx("R")  )
-      e.set("PLAN",  zn* fx("P")  )
-      e.set( "CASH", zn * )
-      e.set( "BANK", zn *  )
-      e.set( "OTHR", zn *  )
-      if(s(tr)==">") {  e.set(rct(rt), -zn)  }
+    if(o.st < 1)zn=0
+    if(o.tr == ">") zn = -zn
+    try { var er="Er¢ " }
+    catch (E){ er+=E.description }
+    eset("SALDO",zn);
+    eset("PLAN", zn,  o.st,"P") 
+    eset("DOLG", -zn,  o.proj,"-")
+    eset("CASH" ,zn,  o.rcn,"C")
+    eset("BANK",zn,   o.rcn,"B")
+    eset("OTHR",zn,   o.rcn,"o")
+
+     
+    if(o.tr== ">" ){   //=== TRANSFER ==
+       e.set(o.rcnt, e.field(o.rcnt)-zn); 
+       e.set("SALDO",0)
+       message( e.field("id")+" ★trans> ")
+    }
+    else{
+       // e.set("rcnt",null)
+        message(" ni transfer")
+      }
+  } 
+  if(Er != "") {
+     log("Er Id#="+e.field("id")+  Er);
+     k.push("Err="+Er);
   }
-  return [fi(rc,2), //račun 
-          fi(zn,3), 
-          fi(tr,1),
-          fi(rt,3),
-          fi(pr,1) ]
-}
-//============
+  return  k.join("\n")
+} 
+//==========
 
-
+//if(1==1){
+//  db=lib().entries()
+//  log(setSaldo(db[ 6 ] , 2) +"\n")
+//}
 
 
