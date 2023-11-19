@@ -47,7 +47,10 @@ function it2L(x,n,p,z,obj){
      }
    }
    }if(oi.trim()>" "){ o.push(oi), m= mm() } //==pripis ostanka
-   if(obj!=null)o.push(eval(obj))                            //4test variavl v skripti
+   if(obj!=null){
+    try { o.push(eval(obj))  }         //4test variabl v skripti
+    catch (Er) { o.push(Er.toString())}
+   }
    if(o[0].slice(0,1)=="-") {    //== pripis dolžine
        o[0]= o[0].slice(1) 
        o.push( "[mxL="+m+"]")
