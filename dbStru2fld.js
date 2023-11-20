@@ -15,12 +15,14 @@ function dbStru2fld(dbSf,vv,ln){dbSf=dbSf==null ?"dbStru" :dbSf
   let o= (ln>0?"=":"")+"dbStru: "+lib().title
   for( let ii=0; ii<n ; ii++){ fi=dbf[ii]
     o+= "\n" 
-    o+= ln>0 ? String(1001+ii).slice(n>99 ?3 :2)+" " :""                     
+    o+= ln>0 ?String(1001+ii).slice(n>99 ?3 :2)+" " :""      
+  //log( String(10001+ii).slice(n>99 ?3 :2)+" "+s(fi)+" /n:"+n)//★★            
     o+= s(fi)
     o+= s(String(typeof( dbe.field(fi))).slice(0,3) ,5)                 
     o+= vv>0 ?dbe.field(fi) :""                        
   }
-  dbe.set(dbSf,o)  // ★temp.Disable //write to LastEntry
+
+  dbe.set(dbSf,o)  // ★tempDisable //write to LastEntry
   return o+"\n========\n"
 }
 //==== end ===
