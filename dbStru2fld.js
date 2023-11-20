@@ -15,11 +15,15 @@ function dbStru2fld(dbSf,vv,ln){dbSf=dbSf==null ?"dbStru" :dbSf
   let o= (ln>0?"=":"")+"dbStru: "+lib().title
   for( let ii=0; ii<n ; ii++){ fi=dbf[ii]
     o+= "\n" 
-    o+= ln>0 ? ("00"+(ii+1)).slice(n>99 ?3 :2)+" " :""                     
+    o+= ln>0 ? String(1001+ii)).slice(n>99 ?3 :2)+" " :""                     
     o+= s(fi)
     o+= s(String(typeof( dbe.field(fi))).slice(0,3) ,5)                 
     o+= vv>0 ?dbe.field(fi) :""                        
   }
+  dbe.set(dbSf,o)  // ★temp.Disable //write to LastEntry
+  return o+"\n========\n"
+}
+//==== end ===
 /* testiranje objekta db in fi == nista odprta
 ky=Object.keys(db), aky =[] //lib ni berljiv
 for(let i=0;i<ky.length;i++){ ki=ky[i]
@@ -29,11 +33,6 @@ for(let i=0;i<ky.length;i++){ ki=ky[i]
  +" S:"+ Object.isSealed(db)+" F:"+Object.isFrozen(db)
   + "} \n"+o
 */
-  dbe.set(dbSf,o)  // ★tempDisable //write to LastEntry
-  return o+"\n========\n"
-}
-//dbe=db.entries()[0].set("dbSf",dbStru())
-//==== end ===
 /*  //* testing:
 log( dbStru2fld("dbStru",0,1))
 function test(x){return x==null ? "test"  :x }
@@ -63,7 +62,7 @@ function dbStru2fld(dbSf,v){dbSf=dbSf==null ?"dbStru" :dbSf
 }
 //dbe=db.entries()[0].set("dbSf",dbStru())
 //==== end ===
-//log(dbStru2fld("dbStru"))
+log(dbStru2fld("dbStru")) // Temp off
 function test(x){return x==null ? "test"  :x }
  //★ end prev
 */ 
