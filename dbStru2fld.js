@@ -1,4 +1,4 @@
-/*
+,/*
  * function dbStru(dfSf,val, ln)
    dfSf = dbStru) :field to write
    val  1 write values /0= not
@@ -33,7 +33,7 @@ for(let i=0;i<ky.length;i++){ ki=ky[i]
  +" S:"+ Object.isSealed(db)+" F:"+Object.isFrozen(db)
   + "} \n"+o
 */
-/*  //* testing:
+/* testing:
 log( dbStru2fld("dbStru",0,1))
 function test(x){return x==null ? "test"  :x }
 */
@@ -64,6 +64,5 @@ function dbStru2fld(dbSf,v){dbSf=dbSf==null ?"dbStru" :dbSf
 //==== end ===
 log(dbStru2fld("dbStru")) // Temp off
 function test(x){return x==null ? "test"  :x }
- //★ end prev
 */ 
-//★End
+//end prev
