@@ -1,4 +1,4 @@
-,/*
+/*
  * function dbStru(dfSf,val, ln)
    dfSf = dbStru) :field to write
    val  1 write values /0= not
