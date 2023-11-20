@@ -12,7 +12,7 @@ function dbStru2fld(dbSf,vv,ln){dbSf=dbSf==null ?"dbStru" :dbSf
   } //=10
   let db=lib(), dbf=db.fields(), n=dbf.length
   let dbe=db.entries()[0]   //★ za izpis vrednosti if( vv)
-  let o= (ln>0?"=":"")"dbStru: "+lib().title
+  let o= (ln>0?"=":"")+"dbStru: "+lib().title
   for( let ii=0; ii<n ; ii++){ fi=dbf[ii]
     o+= "\n" 
     o+= ln>0 ? ("00"+(ii+1)).slice(n>99 ?3 :2)+" " :""                     
