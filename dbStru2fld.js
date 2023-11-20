@@ -15,7 +15,7 @@ function dbStru2fld(dbSf,vv,ln){dbSf=dbSf==null ?"dbStru" :dbSf
   let o= (ln>0?"=":"")+"dbStru: "+lib().title
   for( let ii=0; ii<n ; ii++){ fi=dbf[ii]
     o+= "\n" 
-    o+= ln>0 ? String(1001+ii)).slice(n>99 ?3 :2)+" " :""                     
+    o+= ln>0 ? String(1001+ii).slice(n>99 ?3 :2)+" " :""                     
     o+= s(fi)
     o+= s(String(typeof( dbe.field(fi))).slice(0,3) ,5)                 
     o+= vv>0 ?dbe.field(fi) :""                        
