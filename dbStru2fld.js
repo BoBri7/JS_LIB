@@ -19,35 +19,27 @@ function dbStru2fld(dbSf,vv,ln){
 
   dbSf=dbSf==null ?"dbStru" :dbSf
   //= test return "tf="+dbSf+"<"+
-  let db=lib(), dbf=db.fields(), n=dbf.length
+  let db=lib(), dbf=db.fields(), n=dbf.length,oi=""
   let dbe=db.entries()[0]   //★ za izpis vrednosti if( vv)
   let o= (ln>0?"=":"\n")+"dbStru: "+lib().title,pis=o.length
+
   for( let ii=0; ii<n ; ii++){ fi=dbf[ii]  //=★★★ zanka ★★★
-    o+= "["+(o.length)+"]"
-    o+= "\n" 
-    o+= ln>0 ?String(1001+ii).slice(n>99 ?3 :2)+" " :""     
- 
-  //log( String(10001+ii).slice(n>99 ?3 :2)+" "+s(fi)+" /n:"+n)//★★            
-    o+= s(fi)
-    o+= s(String(typeof( dbe.field(fi))).slice(0,3) ,5)                 
-    o+= vv>0 || vv<-1  ?dbe.field(fi) :""     //= zapis vrednosti /vv  
+    oi= ln>0 ?String(1001+ii).slice(n>99 ?3 :2)+" " :""             
+    oi+= s(fi)
+    oi+= s(String(typeof( dbe.field(fi))).slice(0,3) ,5)                 
+    oi+= vv>0 || vv<-1  ?dbe.field(fi) :""     //= zapis vrednosti /vv  
 
     if(typeof(ln)=="string") {
-       let iis =u(o).indexOf(u(ln),pis)
-       if(iis > 0){ 
-          o+=  "  $¢"+ln+"/"+iis 
-          //pis=o.length ===>★
-          //o+="/>" +pis+" {"+ln
-        } 
-      }
-      pis=o.length      
+       let iis =u(oi).indexOf(u(ln))
+       if(iis >= 0){ oi+= "["+iis+ "  $¢"+ln } 
+      } 
+      o+="\n"+ oi     
    }
   if(vv >=0) {
-//return "====vv"+vv+"/"+dbSf
     try { dbe.set(dbSf, o)  } //= write to LastEntry /vv
-    catch (Er){ o ="★ lib() nima target fielda "+dbSf+"★ \n"+o}
+    catch (Er){ o+="\n★ lib() nima target fielda "+dbSf }
  }
-  return"/ \n \n★" +o+"\n========\n"
+  return"\n" +o+"\n========\n"
 }
 //==== end === ★ TEST:
 /*log("bgn")
