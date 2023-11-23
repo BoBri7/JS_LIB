@@ -13,10 +13,7 @@ function dbStru2fld(dbSf,vv,ln){
     return t+" ".repeat(Math.max(1,n-t.length))+"| "
   }   
   function u(s){ return s.toUpperCase() }
- if( ! isNaN(dbSf) ){ ln=vv;  vv=dbSf;  dbSf=null  }  
-   //=★★★★
-  //  return typeof(dbSf)+"===="+vv
-
+  if( !isNaN(dbSf) ){ ln=vv;  vv=dbSf;  dbSf=null  }  
   dbSf=dbSf==null ?"dbStru" :dbSf
   //= test return "tf="+dbSf+"<"+
   let db=lib(), dbf=db.fields(), n=dbf.length,oi=""
