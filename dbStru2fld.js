@@ -11,6 +11,9 @@ function dbStru2fld(dbSf,vv,ln){
     return t+" ".repeat(Math.max(1,n-t.length))+"| "
   } //=10
   dbSf=dbSf==null ?"dbStru" :dbSf
+  //= test 
+  return "tf="+dbsf+"<"
+
   let db=lib(), dbf=db.fields(), n=dbf.length
   let dbe=db.entries()[0]   //★ za izpis vrednosti if( vv)
   let o= (ln>0?"=":"")+"dbStru: "+lib().title
