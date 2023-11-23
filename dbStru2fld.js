@@ -58,4 +58,4 @@ function dbStru2fld(dbSf,vv,ln){
   return o+"\n========\n"
 }
 //==== end ===
-
+*/
