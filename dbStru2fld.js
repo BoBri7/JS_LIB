@@ -5,12 +5,12 @@
    ln   1 write line#  /0= not
  * return zapis + zapiše strukturo baze v polje dbSf
 */ 
-function dbStru2fld(dbSf,vv,ln){dbSf=dbSf==null ?"dbStru" :dbSf
- // ccc                               
+function dbStru2fld(dbSf,vv,ln){                             
   function  s(t,n){ if(n==null) n=15
     t=String(t)
     return t+" ".repeat(Math.max(1,n-t.length))+"| "
   } //=10
+  dbSf=dbSf==null ?"dbStru" :dbSf
   let db=lib(), dbf=db.fields(), n=dbf.length
   let dbe=db.entries()[0]   //★ za izpis vrednosti if( vv)
   let o= (ln>0?"=":"")+"dbStru: "+lib().title
