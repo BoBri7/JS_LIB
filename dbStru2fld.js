@@ -6,6 +6,7 @@
  * return zapis + zapiše strukturo baze v polje dbSf
 */ 
 function dbStru2fld(dbSf,vv,ln){dbSf=dbSf==null ?"dbStru" :dbSf
+ // ccc                               
   function  s(t,n){ if(n==null) n=15
     t=String(t)
     return t+" ".repeat(Math.max(1,n-t.length))+"| "
