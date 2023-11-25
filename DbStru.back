@@ -1,0 +1,57 @@
+//  primerjava sbStru 0 1 2 //
+// txt.fld do ~ 2mio znakov ★★★★
+
+function f(x){return e.field(x).split("\n")}
+function c(x){ return x.slice(0,1)=="=" ?1 :0 }
+function pc(tt,cc){return cc > 0 ?tt.indexOf(" ") :0 }
+function ky(t,c){  let a=[]  //= napolni ključe iz dbstru???? ★★
+  for(let i=1;i<t.length;i++){ let pi=pc(t,c)
+    a.push( t[i].slice(pi, 20+pi ) ) 
+  } return a
+}
+function fc(af,ii,ci){ return af[ii].slice( pc(fi[ii],ci)) } //= zapis 4<<
+function ii(i) {return ("00"+i ).slice(-2)+". "}   //== zap.št
+function lg(s) { //log(s)
+}
+//=======★g
+dt=moment().format("HH:mm")
+log(dt+" =chkStru  4Script 4GitHub ===== ★  \n \n" )
+db=lib().entries()
+e= db[0]   //= []= izbira zapisa
+
+//e=db.find("id=10" )
+fi="dbStru"
+f1=f(fi);         c1=c(f1[0]); k1=ky(f1,c1); n1=k1.length
+f2=f(fi+"1"); c2=c(f2[0]); k2=ky(f2,c2); n2=k2.length
+n=n1>n2 ?n1:n2 //= Math.max(n1,n2)
+k0=[]                          //======={ output array
+log( "e.id="+e.field("id")+"★")
+
+lg(" ========= \n" )  // ctrl out
+lg(" ctrl: :")
+lg( "f1:"+ f1[0] +" c"+ c1+" n"+n1 )
+lg("f2:"+ f2[0] +" c"+ c2+" n" +n2 )
+//=======
+k0= [ " #     afn    |  typ  |   < = opombe    "  ]
+k0.push(f1[0])
+for(let i=1;i<n1;i++){  //== ★/9★ 4test
+  let i2=k2.indexOf(k1[i])    //= ali obstaja komentiran zapis
+  oi =  ii(i)      //= izpis zap.#
+  oi+= i2>0    //=?  obstaja komentiran izpis?
+    ? "<" + fc(f2,i,c2)          //=izpis komenta = pripis 2
+    : " "+fc(f1,i,c1)              //= pripis novega 
+  k0.push(oi) //i+">"+ki+"<"+ki.length)
+} 
+for(let i=0;i<n2;i++){  //= dopiše  page!=== zapise 
+    i1= k1.indexOf(k2[i])
+   if( i1< 0 &&  f2[i]. slice(0,3) =="==="  ){ 
+       k0.push( "==="+ fc(f2,i,c2 )+ " <"+i)
+   }
+} 
+log( k0.join("\n"))  //==? t izpis
+//message("target="+fi+2)
+try { e.set("dbStruO", "U dbStru ★ \n"+k0.join("\n") )  //= zapis v dbStruO ★★★
+} catch (Er) { message("napaka: "+Er ) ; log("N:"+Er) }
+log("\n  ============= END =======")
+message("★ end ★")
+//log( pc)
