@@ -1,4 +1,11 @@
-//  primerjava sbStru 0 1 2 //
+★★★★★★★ 
+
+
+
+
+
+
+★★★★★★★★★★★★   //  primerjava sbStru 0 1 2 //
 // txt.fld do ~ 2mio znakov ★★★★
 
 function f(x){return e.field(x).split("\n")}
