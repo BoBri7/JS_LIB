@@ -51,10 +51,11 @@ function it2L(x,n,p,z,obj){
     try { o.push(eval(obj))  }         //4test variabl v skripti
     catch (Er) { o.push(Er.toString())}
    }
-   if(o[0].slice(0,1)=="-") {    //== pripis dolžine
+   if(o[0]!=null){
+    if(o[0].slice(0,1)=="-") {    //== pripis dolžine
        o[0]= o[0].slice(1) 
        o.push( "[mxL="+m+"]")
-   }
+   }}
    for(let i=0;i<c(o);i++){oi=o[i] //== desna poravnava+z
       o[i]=(oi+" ".repeat(m)).slice(0,m)
       if(oi.length>m) o[i]+= "+!"+oi.slice(m)
