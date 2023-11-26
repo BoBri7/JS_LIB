@@ -12,7 +12,7 @@ function iSL(x,n,z){
   x=x.split("\n")
   for(let i=0;i<x.length;i++){  xi=  x[i]          
     x[i]=(x[i]+" ".repeat(55)).slice(0,n)+(z!=null?z:"")  
-    x[i]  +=  "\n"+  xi.slice(n+1)      
+    x[i]  +=  "\n"+  xi.slice(n)      
   }
   return x.join("\n")+"\n"                         
 }              
