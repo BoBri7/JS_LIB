@@ -1,15 +1,12 @@
 /*
-  dbStru22file ( cc =# ?  )
-  cc= nul=> createNew; -1 overawrite ??
+  dbStru22file ( DBG, cn )
+  cn= nul=createNew; #= overawrite 
   get comments from prev
-  //MMM. čćđšž *
-  //III//ČĆĐŠŽ ★
-  ...
 */
 function dbStru2file(DBG,cn) {    //=  main function =
   if(" /H/h".indexOf(DBG)>0){
     rv="\n>= dbStru2file(DBG, c ) \n>= return dbStru & WritNF "
-    return rv+"\n>= c>0=overwrite DBG>1 apendLog"
+    return rv+"\n>= c>0=overwrite DBG>1 apendLog \n == PageName =="
   }
   function lg(x){
     if(DBG)log(x);
